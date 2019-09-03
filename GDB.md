@@ -9,4 +9,7 @@ __breakpoint__
 * break +offset
 * break -offset
 * break *address
-duandian
+
+*查看断点信息:*
+* break info
+* b i
