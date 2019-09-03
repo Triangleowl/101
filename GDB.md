@@ -7,4 +7,4 @@ __breakpoint__
 * break filename:linenumber
 * break +offset
 * break -offset
-* break '*'address
+* break *address
