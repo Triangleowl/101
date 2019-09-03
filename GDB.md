@@ -1,6 +1,6 @@
 ## GDB归纳
 
-__breakpoint__
+### breakpoint
 
 *设置断点:*
 * break functionname
