@@ -13,3 +13,12 @@ __breakpoint__
 *查看断点信息:*
 * break info
 * b i
+
+*删除断点:*
+* delete breakpointnumber
+* clear linenumber
+
+*禁用/启用断点:*
+* disable 
+* enable
+
