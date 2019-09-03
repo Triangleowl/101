@@ -1,6 +1,7 @@
 ## GDB归纳
 
 __breakpoint__
+
 *设置断点:*
 * break functionname
 * break linenumber
@@ -8,3 +9,4 @@ __breakpoint__
 * break +offset
 * break -offset
 * break *address
+duandian
