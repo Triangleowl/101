@@ -1,0 +1,1 @@
+666mail -s "mail lee” lee@lee.com < lee1 将文件lee1 当做信件的内容，主题名称为mail lee，送给收信人。
