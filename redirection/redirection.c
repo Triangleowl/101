@@ -1,3 +1,7 @@
+/*
+    使用dup2()将标准输入重定向到文件"input"
+*/
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
