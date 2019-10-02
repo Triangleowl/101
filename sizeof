@@ -1,0 +1,71 @@
+示例1:
+
+    typedef struct s{
+        int a;
+        double b;
+        char c;
+    }S;
+
+    S a;
+    S *p = &a;
+    
+    printf("sizeof(a) is: %ld\n", sizeof(a));
+    printf("sizeof(p) is %ld\n", sizeof(p));
+    printf("sizeof(*p) is %ld\n", sizeof(*p));
+
+输出结果:
+        sizeof(a) is: 24
+        sizeof(p) is 8
+        sizeof(*p) is 24
+
+结果分析:
+    sizeof的结果有一下几种：
+    1. sizeof char or an expression of type char is guaranteed to be 1.
+
+    2. sizeof a reference type returns the size of an object of the re-
+    ference type.
+
+    3. sizeof a pointer return sthe size needed hold a pointer.
+
+    4. sizeof a dereferenced pointer returns the size of an object of 
+    the type to which the pointer points; the pointer need not be valid.
+    (因为sizeof不做运算，所以及使指针未被初始化或者指针指向NULL，依然
+     可以使用sizeof)
+
+    5. sizeof an array is the size of the entire array. It is equivalent
+    to taking the sizeof the element type times the number of elements in
+    the array. 
+    (Note that sizeof does not convert the array to a pointer.)
+
+    6. sizeof a string or a vector returns only the size of the fixed part
+    of these types; it does not return the size used by the object's elements.
+
+    a是一个数组，结合规则5,可以知道sizeof(a)得到的是数组a的大小，所以是24(不考
+    虑对齐和机器位数)。p是一个指针，结合规则3, 可以得到sizeof(p)返回的是一个指针
+    的大小(8说明是在64位机器上)。结合规则4可以得到sizeof(*p)返回的就是指针p所指的
+    对象的大小，所以和sizeof(a)是一样的。
+
+
+示例2: pointer of array VS array of pointer
+
+    int *p[10];
+    printf("sizeof(p) is: %ld\n", sizeof(p));
+    printf("sizeof(*p) is %ld\n", sizeof(*p));
+    
+输出结果:
+        sizeof(p) is: 80
+        sizeof(*p) is 8
+
+结果分析:
+    结果有点出人意料, 不是说sizeof(pointer)返回的是一个指针的大小吗? 这不符合上面
+    的规则啊! 其实问题出在了这个*p[10]到底是数组指针还是指针数组上面.搞懂这个并不
+    难, 只要知道了*(dereference)和[](subscript)的优先级自然而然就知道*p[10]到底是
+    数组指针还是指针数组了. 实际上[](subscript)的优先级比*(deference)的优先级高, 
+    而且*(deference)是向右结合, 而[]是向左结合. 所以首先对p进行[](subscript)运算,
+    所以p是一个数组,然后是*(deference)运算，所以p这个数组的每个成员都是一个指向
+    int 型的指针. 因此，说到底p还是一个指针, 所以sizeof(p)是这个数组的大小.数组的
+    大小就是数组中一个元素的大小(64位机器上指针大小为8 bytes)乘上数组元素的个数(10),
+    共80bytes. *p就取数组的第一个元素(存放的是个指针), 所以是8 bytes.
+
+
+
