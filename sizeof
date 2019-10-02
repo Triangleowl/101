@@ -67,5 +67,16 @@
     大小就是数组中一个元素的大小(64位机器上指针大小为8 bytes)乘上数组元素的个数(10),
     共80bytes. *p就取数组的第一个元素(存放的是个指针), 所以是8 bytes.
 
-
+    同理，将上面的代码做一点小改动：
+    int (*p)[10]; //数组指针
+    printf("sizeof(p) is: %ld\n", sizeof(p));
+    printf("sizeof(*p) is %ld\n", sizeof(*p));   
+    
+输出结果:
+        sizeof(p) is: 8
+        sizeof(*p) is 40
+        
+结果分析:
+    这是一个数组指针，即指向数组的指针，sizeof(p)得到的是指针的大小(8 bytes), 而sizeof(*p)
+    得到的是指针指向的对象的大小(存放10个int型数据的数组，大小为40bytes)。
 
