@@ -1,0 +1,36 @@
+1. 安装git(官网链接：https://git-scm.com/)
+
+2. 设置名称、邮箱
+  打开git-bash,输入：（注意要加上引号）
+  
+  $ git config --global user.name "名称"  
+  $ git config --global user.emali "邮箱"  
+  
+3. 使用git clone 时出现问题,解决办法：添加ssh-key
+
+  $ ssh-keygen -t rsa -C "邮箱"
+  
+  此时会提示如下信息：
+ 
+  Generating public/private rsa key pair.
+  Enter file in which to save the key (/c/Users/XXXX/.ssh/id_rsa):
+  
+  提示输入保存key文件的路径，按下回车即可保存到默认路径C:/Users/XXXX/.ssh/id_rsa.pub中
+  然后会提示输入密码，在这里设置一个密码（记住这个密码，将来会用到）。输入密码即可生成
+  key文件，然后打开github,找到setting->SSH and GPG keys,选择New SSH key,把C:/Users/XXXX/.ssh/id_rsa.pub的内容拷贝到这里即可完成新建。
+  
+ 4. 使用git clone 下载windows terminal，提示如下错误：
+ 
+ $ git clone git@github.com:microsoft/terminal.git 
+  Cloning into 'terminal'...
+  Connection reset by 13.229.188.59 port 22
+  fatal: Could not read from remote repository.
+
+  Please make sure you have the correct access rights
+  and the repository exists.
+
+  这可能是无法解析github导致的，在cmd中ping baidu.com有回复，但是ping github.com请求超时，解决方法：
+  打开：C:\Windows\System32\drivers\etc\hosts添加下面两行（需要管理员权限），然后保存即可正常下载。
+  
+  192.30.255.112  github.com git 
+  185.31.16.184 github.global.ssl.fastly.net  
