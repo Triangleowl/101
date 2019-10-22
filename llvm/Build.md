@@ -4,5 +4,5 @@
 [官方教程][build]
 
 
-
-[build]https://llvm.org/docs/GettingStarted.html
+---------------------------------
+[build]:https://llvm.org/docs/GettingStarted.html
