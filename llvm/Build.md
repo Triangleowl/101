@@ -5,4 +5,4 @@
 
 
 
-[build](https://llvm.org/docs/GettingStarted.html, "点我")
+build=https://llvm.org/docs/GettingStarted.html
