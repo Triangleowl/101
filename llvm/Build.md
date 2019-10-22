@@ -5,6 +5,13 @@
 ```
 git clone https://github.com/llvm/llvm-project.git
 ```
+下载完成后执行如下命令
+```
+cd llvm-project
+mkdir build
+cd build
+cmake -G <generator> [options] ../llvm
+```
 
 
 
