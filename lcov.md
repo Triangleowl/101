@@ -16,3 +16,5 @@ $ lcov -c -d . -o coverage.info
 $ genhtml coverage.info -o out
 ```
 `lcov` 使用可以参考[这里]
+
+[这里]:http://ltp.sourceforge.net/coverage/lcov.php
